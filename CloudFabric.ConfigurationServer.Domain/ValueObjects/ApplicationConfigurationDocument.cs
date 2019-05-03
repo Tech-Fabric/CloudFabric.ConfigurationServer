@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CloudFabric.ConfigurationServer.Domain.Exceptions;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CloudFabric.ConfigurationServer.Domain.ValueObjects
@@ -14,6 +16,34 @@ namespace CloudFabric.ConfigurationServer.Domain.ValueObjects
 
             Name = name;
             Environments = environments ?? Environments;
+        }
+
+        public void AddEnvironment(EnvironmentConfigurationDocument environment)
+        {
+            if(Environments.Exists(e => e.Name.Equals(environment.Name)))
+            {
+                throw new EnvironmentAlreadyExistsException(environment);
+            }
+            Environments.Add(environment);
+        }
+
+        public List<ConfigurationProperty> GetTransformedConfiguration(EnvironmentName environmentName)
+        {
+            var foundEnvironmentConfiguration = Environments.First(e => e.Name.Equals(environmentName));
+            if(foundEnvironmentConfiguration != null)
+            {
+                /*
+                 * if envrionment configuration exists, apply the configuration and return it.
+                 */ 
+                return GetTransformedConfiguration(foundEnvironmentConfiguration.GetProperties());
+            }
+            else
+            {
+                /*
+                 * If environment configuration doesn't exist, return a copy of the properties.
+                 */ 
+                return GetProperties();
+            }
         }
     }
 }
