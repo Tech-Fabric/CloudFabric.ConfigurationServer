@@ -1,0 +1,7 @@
+**/.vs/**
+**/obj/**
+**/pkg/**
+**/package/**
+**/bin/**
+**/packages/**
+**/TestResults/**
