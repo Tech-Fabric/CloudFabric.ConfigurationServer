@@ -1,25 +1,35 @@
-﻿using CloudFabric.ConfigurationServer.Domain.ValueObjects;
+﻿using System.Threading.Tasks;
+using CloudFabric.ConfigurationServer.Domain.ValueObjects;
 using CloudFabric.ConfigurationServer.GrainInterfaces;
 using Orleans;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CloudFabric.ConfigurationServer.Grains
 {
-    public class ConfigurationGrain : Grain, IConfigurationGrain
+    public class Configuration : Grain, IConfiguration
     {
-        public Task<ConfigurationMetadata> Metadata { get; }
-
-        public Task DeleteConfigurationProperty(ConfigurationProperty property)
+        public Task<IClientConfiguration> AddClient(string clientName)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
 
-        public Task UpdateConfigurationProperty(ConfigurationProperty property)
+        public Task<string[]> GetAllClientNames()
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
+        }
+
+        public Task<IClientConfiguration> GetClient(string clientName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<ConfigurationProperty[]> GetEffectiveConfiguration(string clientName, string applicationName, string environmentName, string deploymentName = null)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task RemoveClient(string clientName)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

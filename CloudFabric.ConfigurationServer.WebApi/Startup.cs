@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Orleans;
+using Orleans.Configuration;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace CloudFabric.ConfigurationServer.WebApi
 {
@@ -26,6 +29,19 @@ namespace CloudFabric.ConfigurationServer.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSingleton(new Lazy<IClusterClient>(() =>
+            {
+                var client = CreateOrleansClient();
+                client.Connect(e => Task.FromResult(true)).Wait();
+
+                return client;
+            }));
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Configuration Service API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +58,29 @@ namespace CloudFabric.ConfigurationServer.WebApi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Configuration Service API");
+            });
+
             app.UseMvc();
+        }
+
+        private static IClusterClient CreateOrleansClient()
+        {
+            var client = new ClientBuilder()
+                .UseLocalhostClustering()
+                .Configure<ClusterOptions>(options =>
+                {
+                    options.ClusterId = "dev";
+                    options.ServiceId = "ConfigurationService";
+                })
+                .ConfigureLogging(logging => logging.AddConsole())
+                .Build();
+
+            return client;
         }
     }
 }

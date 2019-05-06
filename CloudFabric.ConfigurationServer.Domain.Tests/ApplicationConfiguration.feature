@@ -19,26 +19,9 @@ Scenario: testing
 	And the following environment named: 'Staging' and the configuration properties
 	| Name    | Value                  |
 	| TestUri | https://www.google.com |
-	When we fetch configuration properties for the application: 'Test Application' and environment: 'Staging'
-	Then the configuration properties should be
+	Then the application with the following environment 'Staging' has the following properties
 	| Name    | Value                  |
 	| TestUri | https://www.google.com |
 	| TestVal | abcd1234               |
 
-Scenario: testing2
-	Given the following application named: 'Test Application' and the configuration properties
-	| Name    | Value             |
-	| TestUri | http://google.com |
-	| TestVal | abcd1234          |
-	And the following environment named: 'Staging' and the configuration properties
-	| Name      | Value                  |
-	| TestUri   | https://www.google.com |
-	| TestValue | asdf                   |
-	When we fetch configuration properties for the application: 'Test Application' and environment: 'Staging'
-	Then the configuration properties should be
-	| Name      | Value                  |
-	| TestUri   | https://www.google.com |
-	| TestVal   | abcd1234               |
-	| TestValue | asdf                   |
-	
 	
