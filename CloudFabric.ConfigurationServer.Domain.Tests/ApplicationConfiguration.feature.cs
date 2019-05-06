@@ -131,9 +131,6 @@ this.ScenarioInitialize(scenarioInfo);
                         "https://www.google.com"});
 #line 19
  testRunner.And("the following environment named: \'Staging\' and the configuration properties", ((string)(null)), table2, "And ");
-#line 22
- testRunner.When("we fetch configuration properties for the application: \'Test Application\' and env" +
-                    "ironment: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -144,62 +141,9 @@ this.ScenarioInitialize(scenarioInfo);
             table3.AddRow(new string[] {
                         "TestVal",
                         "abcd1234"});
-#line 23
- testRunner.Then("the configuration properties should be", ((string)(null)), table3, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("testing2", SourceLine=27)]
-        public virtual void Testing2()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("testing2", null, ((string[])(null)));
-#line 28
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table4.AddRow(new string[] {
-                        "TestUri",
-                        "http://google.com"});
-            table4.AddRow(new string[] {
-                        "TestVal",
-                        "abcd1234"});
-#line 29
- testRunner.Given("the following application named: \'Test Application\' and the configuration propert" +
-                    "ies", ((string)(null)), table4, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table5.AddRow(new string[] {
-                        "TestUri",
-                        "https://www.google.com"});
-            table5.AddRow(new string[] {
-                        "TestValue",
-                        "asdf"});
-#line 33
- testRunner.And("the following environment named: \'Staging\' and the configuration properties", ((string)(null)), table5, "And ");
-#line 37
- testRunner.When("we fetch configuration properties for the application: \'Test Application\' and env" +
-                    "ironment: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table6.AddRow(new string[] {
-                        "TestUri",
-                        "https://www.google.com"});
-            table6.AddRow(new string[] {
-                        "TestVal",
-                        "abcd1234"});
-            table6.AddRow(new string[] {
-                        "TestValue",
-                        "asdf"});
-#line 38
- testRunner.Then("the configuration properties should be", ((string)(null)), table6, "Then ");
+#line 22
+ testRunner.Then("the application with the following environment \'Staging\' has the following proper" +
+                    "ties", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

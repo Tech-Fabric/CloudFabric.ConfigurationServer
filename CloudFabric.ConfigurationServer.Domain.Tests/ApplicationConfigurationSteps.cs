@@ -48,15 +48,6 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
             Context.ApplicationConfiguration = new ApplicationConfigurationDocument(new ApplicationName("Test"));
         }
 
-        [When(@"we fetch configuration properties for the application: '(.*)' and environment: '(.*)'")]
-        public void WhenWeFetchConfigurationPropertiesForTheApplicationAndEnvironment(string p0, string p1)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        
-
-
 
         [When(@"get the number of properties")]
         public void WhenGetTheNumberOfProperties()
@@ -88,12 +79,6 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
         public void ThenTheApplicationWithTheFollowingEnvironmentHasTheFollowingProperties(string envName, IEnumerable<ConfigurationProperty> properties)
         {
 
-        }
-
-        [Then(@"the configuration properties should be")]
-        public void ThenTheConfigurationPropertiesShouldBe(Table table)
-        {
-            ScenarioContext.Current.Pending();
         }
 
 
