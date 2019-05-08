@@ -3,10 +3,18 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
     <PackageReference Include="Microsoft.Orleans.Server" Version="2.3.1" />
+    <PackageReference Include="Orleans.Persistence.CosmosDB" Version="1.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CloudFabric.ConfigurationServer.GrainInterfaces\CloudFabric.ConfigurationServer.GrainInterfaces.csproj" />
+    <ProjectReference Include="..\CloudFabric.ConfigurationServer.Grains\CloudFabric.ConfigurationServer.Grains.csproj" />
   </ItemGroup>
 
 </Project>

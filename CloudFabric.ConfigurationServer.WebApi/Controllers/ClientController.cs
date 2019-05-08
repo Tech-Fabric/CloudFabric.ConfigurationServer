@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using CloudFabric.ConfigurationServer.GrainInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Orleans;
 
@@ -17,9 +18,9 @@ namespace CloudFabric.ConfigurationServer.WebApi.Controllers
         }
 
         [HttpGet]
-        public Task<object[]> GetClients()
+        public async Task<string[]> GetClients()
         {
-            throw new NotImplementedException();
+            return await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetAllClientNames();
         }
 
         [HttpGet("{name}")]
@@ -29,9 +30,9 @@ namespace CloudFabric.ConfigurationServer.WebApi.Controllers
         }
 
         [HttpPost("{name}")]
-        public Task AddClient(string name)
+        public async Task AddClient(string name)
         {
-            throw new NotImplementedException();
+            await this.OrleansClient.Value.GetGrain<IConfiguration>(0).AddClient(name);
         }
 
         [HttpDelete("{name}")]

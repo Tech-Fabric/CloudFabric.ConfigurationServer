@@ -150,22 +150,3 @@ Scenario: one application and environment in root
     | Name     | Value |
     | testval1 | 321   |
     | testval2 | fds   |
-
-Scenario: one application and environment in root
-	Given there are the following properties configured
-    | Name     | Value |
-    | testval1 | 123   |
-    | testval2 | a     |
-	And there is an environment configuration Name: 'Staging' with the properties
-    | Name     | Value |
-    | testval1 | adsf  |
-	And there is an application configuration Name: 'Web' with the properties
-	| Name     | Value |
-	| testval1 | 321   |
-	| testval3 | fds   |
-	When I get configuration properties with application Name: 'Web' and environment Name: 'Staging'
-	Then the configuration transform result should be
-    | Name     | Value |
-    | testval1 | 321   |
-    | testval2 | a     |
-    | testval3 | fds   |
