@@ -21,7 +21,7 @@ namespace CloudFabric.ConfigurationServer.WebApi.Controllers
         [HttpGet]
         public async Task<ConfigurationProperty[]> GetEffectiveConfiguration(string clientName, string applicationName, string environmentName, string deploymentName)
         {
-            return await this.OrleansClient.Value.GetGrain<IConfiguration>(Guid.Empty).GetEffectiveConfiguration(clientName, applicationName, environmentName, deploymentName);
+            return await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetEffectiveConfiguration(clientName, applicationName, environmentName, deploymentName);
         }
     }
 }

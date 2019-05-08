@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
 using CloudFabric.ConfigurationServer.Domain.ValueObjects;
+using Orleans;
 
 namespace CloudFabric.ConfigurationServer.GrainInterfaces
 {
-    public interface IClientConfiguration : IConfigurationStore
+    public interface IClientConfiguration : IGrainWithGuidKey, IConfigurationStore
     {
         Task<IEnvironmentConfiguration> AddEnvironment(string environmentName);
         Task<IEnvironmentConfiguration> GetEnvironment(string environmentName);

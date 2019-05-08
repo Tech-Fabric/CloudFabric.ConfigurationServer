@@ -4,7 +4,7 @@ using Orleans;
 
 namespace CloudFabric.ConfigurationServer.GrainInterfaces
 {
-    public interface IConfiguration : IGrainWithGuidKey
+    public interface IConfiguration : IGrainWithIntegerKey
     {
         Task<IClientConfiguration> AddClient(string clientName);
         Task<IClientConfiguration> GetClient(string clientName);
