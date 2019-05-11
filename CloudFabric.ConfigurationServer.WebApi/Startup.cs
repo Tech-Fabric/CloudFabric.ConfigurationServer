@@ -41,6 +41,7 @@ namespace CloudFabric.ConfigurationServer.WebApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Configuration Service API", Version = "v1" });
+                c.CustomSchemaIds(CustomSchemaIdProvider);
             });
         }
 
@@ -81,6 +82,16 @@ namespace CloudFabric.ConfigurationServer.WebApi
                 .Build();
 
             return client;
+        }
+
+        private static string CustomSchemaIdProvider(Type type)
+        {
+            const string controllerNamespace = "CloudFabric.ConfigurationServer.WebApi.Controllers.";
+
+            if (type.FullName.StartsWith(controllerNamespace))
+                return type.FullName.Substring("CloudFabric.ConfigurationServer.WebApi.Controllers.".Length);
+            else
+                return type.Name;
         }
     }
 }

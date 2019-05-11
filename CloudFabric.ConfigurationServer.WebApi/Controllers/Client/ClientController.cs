@@ -8,7 +8,7 @@ using Orleans;
 namespace CloudFabric.ConfigurationServer.WebApi.Controllers.Client
 {
     [ApiController]
-    [Route("api/client")]
+    [Route("api/clients")]
     public class ClientController : ControllerBase
     {
         private readonly Lazy<IClusterClient> OrleansClient;
@@ -21,7 +21,7 @@ namespace CloudFabric.ConfigurationServer.WebApi.Controllers.Client
         [HttpGet("{name}")]
         public async Task<ClientDetails> GetClient(string name)
         {
-            var client = await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetClient(name);
+            var client = await this.OrleansClient.Value.GetConfigurationGrain().GetClient(name);
 
             var clientDetails = new ClientDetails
             {
@@ -34,47 +34,47 @@ namespace CloudFabric.ConfigurationServer.WebApi.Controllers.Client
         }
 
         [HttpGet]
-        public Task<string[]> GetClients() => this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetAllClientNames();
+        public Task<string[]> GetClients() => this.OrleansClient.Value.GetConfigurationGrain().GetAllClientNames();
 
         [HttpPost("{name}")]
-        public Task AddClient(string name) => this.OrleansClient.Value.GetGrain<IConfiguration>(0).AddClient(name);
+        public Task AddClient(string name) => this.OrleansClient.Value.GetConfigurationGrain().AddClient(name);
 
         [HttpDelete("{name}")]
-        public Task RemoveClient(string name) => this.OrleansClient.Value.GetGrain<IConfiguration>(0).RemoveClient(name);
+        public Task RemoveClient(string name) => this.OrleansClient.Value.GetConfigurationGrain().RemoveClient(name);
 
         [HttpGet]
-        [Route("{name}/property")]
+        [Route("{name}/properties")]
         public async Task<ConfigurationProperty[]> GetConfiguration(string name)
         {
-            var client = await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetClient(name);
+            var client = await this.OrleansClient.Value.GetConfigurationGrain().GetClient(name);
 
             return await client.GetAllProperies();
         }
 
         [HttpGet]
-        [Route("{name}/property/{propertyName}")]
+        [Route("{name}/properties/{propertyName}")]
         public async Task<string> GetConfigurationProperty(string name, string propertyName)
         {
-            var client = await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetClient(name);
+            var client = await this.OrleansClient.Value.GetConfigurationGrain().GetClient(name);
             var property = await client.GetProperty(propertyName);
 
             return property.Value;
         }
 
         [HttpPut]
-        [Route("{name}/property/{propertyName}")]
+        [Route("{name}/properties/{propertyName}")]
         public async Task SetConfigurationProperty(string name, string propertyName, [FromBody]SetConfigurationPropertyRequest request)
         {
-            var client = await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetClient(name);
+            var client = await this.OrleansClient.Value.GetConfigurationGrain().GetClient(name);
 
             await client.SetProperty(new ConfigurationProperty(propertyName, request.PropertyValue));
         }
 
         [HttpDelete]
-        [Route("{name}/property/{propertyName}")]
+        [Route("{name}/properties/{propertyName}")]
         public async Task DeleteConfigurationProperty(string name, string propertyName)
         {
-            var client = await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetClient(name);
+            var client = await this.OrleansClient.Value.GetConfigurationGrain().GetClient(name);
             await client.RemoveProperty(propertyName);
         }
     }

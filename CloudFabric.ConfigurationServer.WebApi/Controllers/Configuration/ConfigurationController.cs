@@ -5,10 +5,10 @@ using CloudFabric.ConfigurationServer.GrainInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Orleans;
 
-namespace CloudFabric.ConfigurationServer.WebApi.Controllers
+namespace CloudFabric.ConfigurationServer.WebApi.Controllers.Configuration
 {
     [ApiController]
-    [Route("api/configuration/client/{clientName}/application/{applicationName}/environment/{environmentName}")]
+    [Route("api/configuration/clients/{clientName}/applications/{applicationName}/environments/{environmentName}")]
     public class ConfigurationController : ControllerBase
     {
         private readonly Lazy<IClusterClient> OrleansClient;
@@ -21,7 +21,7 @@ namespace CloudFabric.ConfigurationServer.WebApi.Controllers
         [HttpGet]
         public async Task<ConfigurationProperty[]> GetEffectiveConfiguration(string clientName, string applicationName, string environmentName, string deploymentName)
         {
-            return await this.OrleansClient.Value.GetGrain<IConfiguration>(0).GetEffectiveConfiguration(clientName, applicationName, environmentName, deploymentName);
+            return await this.OrleansClient.Value.GetConfigurationGrain().GetEffectiveConfiguration(clientName, applicationName, environmentName, deploymentName);
         }
     }
 }
