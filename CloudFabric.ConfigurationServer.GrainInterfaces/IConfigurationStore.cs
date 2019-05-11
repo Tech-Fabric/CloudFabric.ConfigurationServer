@@ -5,9 +5,9 @@ namespace CloudFabric.ConfigurationServer.GrainInterfaces
 {
     public interface IConfigurationStore
     {
-        Task SetProperty(string propertyName, string value);
+        Task SetProperty(ConfigurationProperty property);
         Task RemoveProperty(string propertyName);
         Task<ConfigurationProperty> GetProperty(string propertyName);
-        Task<ConfigurationProperty> GetAllProperies();
+        Task<ConfigurationProperty[]> GetAllProperies();
     }
 }

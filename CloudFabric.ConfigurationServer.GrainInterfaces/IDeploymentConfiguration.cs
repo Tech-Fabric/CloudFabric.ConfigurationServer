@@ -1,6 +1,10 @@
-﻿namespace CloudFabric.ConfigurationServer.GrainInterfaces
+﻿using System.Threading.Tasks;
+using Orleans;
+
+namespace CloudFabric.ConfigurationServer.GrainInterfaces
 {
-    public interface IDeploymentConfiguration : IConfigurationStore
+    public interface IDeploymentConfiguration : IGrainWithGuidKey, IConfigurationStore
     {
+        Task Delete();
     }
 }

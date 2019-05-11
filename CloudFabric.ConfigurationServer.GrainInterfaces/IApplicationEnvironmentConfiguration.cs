@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
 using CloudFabric.ConfigurationServer.Domain.ValueObjects;
+using Orleans;
 
 namespace CloudFabric.ConfigurationServer.GrainInterfaces
 {
-    public interface IApplicationEnvironmentConfiguration : IConfigurationStore
+    public interface IApplicationEnvironmentConfiguration : IGrainWithGuidKey, IConfigurationStore
     {
         Task<IDeploymentConfiguration> AddDeployment(string deploymentName);
         Task<IDeploymentConfiguration> GetDeployment(string deploymentName);

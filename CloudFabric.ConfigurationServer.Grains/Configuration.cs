@@ -23,10 +23,7 @@ namespace CloudFabric.ConfigurationServer.Grains
             return this.GrainFactory.GetGrain<IClientConfiguration>(clientId);
         }
 
-        public Task<string[]> GetAllClientNames()
-        {
-            return Task.FromResult(this.State.Clients.Keys.ToArray());
-        }
+        public Task<string[]> GetAllClientNames() => Task.FromResult(this.State.Clients.Keys.ToArray());
 
         public Task<IClientConfiguration> GetClient(string clientName)
         {
@@ -34,6 +31,18 @@ namespace CloudFabric.ConfigurationServer.Grains
                 throw new Exception($"Client {clientName} doesn't exists");
 
             return Task.FromResult(this.GrainFactory.GetGrain<IClientConfiguration>(this.State.Clients[clientName]));
+        }
+
+        public async Task RemoveClient(string clientName)
+        {
+            if (!this.State.Clients.ContainsKey(clientName))
+                return;
+
+            await this.GrainFactory.GetGrain<IClientConfiguration>(this.State.Clients[clientName]).Delete();
+
+            this.State.Clients.Remove(clientName);
+
+            await this.WriteStateAsync();
         }
 
         public async Task<ConfigurationProperty[]> GetEffectiveConfiguration(string clientName, string applicationName, string environmentName, string deploymentName = null)
@@ -46,11 +55,6 @@ namespace CloudFabric.ConfigurationServer.Grains
             var clientProperties = await client.GetEffectiveConfiguration(applicationName, environmentName, deploymentName);
 
             return clientProperties;
-        }
-
-        public Task RemoveClient(string clientName)
-        {
-            throw new System.NotImplementedException();
         }
 
         public class ConfigurationState
