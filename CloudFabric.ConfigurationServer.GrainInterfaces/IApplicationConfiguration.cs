@@ -12,5 +12,6 @@ namespace CloudFabric.ConfigurationServer.GrainInterfaces
         Task<string[]> GetAllEnvironmentNames();
 
         Task<ConfigurationProperty[]> GetEffectiveConfiguration(string environmentName, string deploymentName = null);
+        Task Delete();
     }
 }

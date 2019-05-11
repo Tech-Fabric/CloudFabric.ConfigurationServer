@@ -61,7 +61,14 @@ namespace CloudFabric.ConfigurationServer.Grains
                 return applicationEnvironmentConfiguration;
         }
 
-        public Task Delete() => this.ClearStateAsync();
+        public async Task Delete()
+        {
+            var deleteDeployments = this.State.Deployments.Values.Select(x => this.GrainFactory.GetGrain<IDeploymentConfiguration>(x).Delete());
+
+            await Task.WhenAll(deleteDeployments);
+
+            await this.ClearStateAsync();
+        }
 
         public Task<ConfigurationProperty[]> GetAllProperies() => Task.FromResult(this.State.Properties.Select(x => new ConfigurationProperty(x.Key, x.Value)).ToArray());
 

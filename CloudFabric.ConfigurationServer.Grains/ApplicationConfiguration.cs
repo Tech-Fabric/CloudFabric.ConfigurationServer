@@ -55,7 +55,14 @@ namespace CloudFabric.ConfigurationServer.Grains
             return applicationConfiguration.OverrideWith(environmentConfiguration).ToArray();
         }
 
-        public Task Delete() => this.ClearStateAsync();
+        public async Task Delete()
+        {
+            var deleteEnvironments = this.State.Environments.Values.Select(x => this.GrainFactory.GetGrain<IApplicationEnvironmentConfiguration>(x).Delete());
+
+            await Task.WhenAll(deleteEnvironments);
+
+            await this.ClearStateAsync();
+        }
 
         public Task<ConfigurationProperty[]> GetAllProperies() => Task.FromResult(this.State.Properties.Select(x => new ConfigurationProperty(x.Key, x.Value)).ToArray());
 
