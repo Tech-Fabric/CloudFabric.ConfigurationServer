@@ -17,18 +17,31 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("ConfigurationService", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-        "f two numbers", SourceFile="ConfigurationService.feature", SourceLine=0)]
+    [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
     public partial class ConfigurationServiceFeature
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        
+        private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
         
 #line 1 "ConfigurationService.feature"
 #line hidden
         
-        [TechTalk.SpecRun.FeatureInitialize()]
-        public virtual void FeatureSetup()
+        public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
+        {
+            get
+            {
+                return this._testContext;
+            }
+            set
+            {
+                this._testContext = value;
+            }
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
+        public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ConfigurationService", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
@@ -36,18 +49,24 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [TechTalk.SpecRun.FeatureCleanup()]
-        public virtual void FeatureTearDown()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute()]
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute()]
         public virtual void TestInitialize()
         {
+            if (((testRunner.FeatureContext != null) 
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "ConfigurationService")))
+            {
+                global::CloudFabric.ConfigurationServer.Domain.Tests.ConfigurationServiceFeature.FeatureSetup(null);
+            }
         }
         
-        [TechTalk.SpecRun.ScenarioCleanup()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -56,6 +75,7 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
         public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Microsoft.VisualStudio.TestTools.UnitTesting.TestContext>(_testContext);
         }
         
         public virtual void ScenarioStart()
@@ -68,13 +88,13 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Get configuration properties", new string[] {
-                "mytag"}, SourceLine=6)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get configuration properties")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void GetConfigurationProperties()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get configuration properties", null, new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get configuration properties", null, ((string[])(null)));
+#line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -87,9 +107,9 @@ this.ScenarioInitialize(scenarioInfo);
             table4.AddRow(new string[] {
                         "WebApi",
                         "value2"});
-#line 8
+#line 7
  testRunner.Given("there are the following properties configured", ((string)(null)), table4, "Given ");
-#line 12
+#line 11
  testRunner.When("I get configuration properties", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -101,17 +121,19 @@ this.ScenarioInitialize(scenarioInfo);
             table5.AddRow(new string[] {
                         "WebApi",
                         "value2"});
-#line 13
+#line 12
  testRunner.Then("the configuration transform result should be", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add configuration property conflict", SourceLine=17)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add configuration property conflict")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void AddConfigurationPropertyConflict()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add configuration property conflict", null, ((string[])(null)));
-#line 18
+#line 17
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -121,22 +143,24 @@ this.ScenarioInitialize(scenarioInfo);
             table6.AddRow(new string[] {
                         "testval1",
                         "testval2"});
-#line 19
+#line 18
  testRunner.Given("there are the following properties configured", ((string)(null)), table6, "Given ");
-#line 22
+#line 21
  testRunner.When("I add a configuration property Name: \'testval1\' Value: \'testing\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
+#line 22
  testRunner.Then("there should be an exception thrown \'ConfigurationPropertyAlreadyExistsException\'" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add configuration", SourceLine=24)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add configuration")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void AddConfiguration()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add configuration", null, ((string[])(null)));
-#line 25
+#line 24
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -146,9 +170,9 @@ this.ScenarioInitialize(scenarioInfo);
             table7.AddRow(new string[] {
                         "testval1",
                         "431"});
-#line 26
+#line 25
  testRunner.Given("there are the following properties configured", ((string)(null)), table7, "Given ");
-#line 29
+#line 28
  testRunner.When("I add the configuration property Name: \'testval2\' Value: \'testing\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -160,17 +184,19 @@ this.ScenarioInitialize(scenarioInfo);
             table8.AddRow(new string[] {
                         "testval2",
                         "testing"});
-#line 30
+#line 29
  testRunner.Then("the configuration transform result should be", ((string)(null)), table8, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("One environment in root", SourceLine=37)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("One environment in root")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void OneEnvironmentInRoot()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("One environment in root", null, ((string[])(null)));
-#line 38
+#line 37
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -183,7 +209,7 @@ this.ScenarioInitialize(scenarioInfo);
             table9.AddRow(new string[] {
                         "testval2",
                         "asdf"});
-#line 39
+#line 38
  testRunner.Given("there are the following properties configured", ((string)(null)), table9, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -192,9 +218,9 @@ this.ScenarioInitialize(scenarioInfo);
             table10.AddRow(new string[] {
                         "testval1",
                         "abc"});
-#line 43
+#line 42
  testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table10, "And ");
-#line 46
+#line 45
  testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
@@ -206,17 +232,19 @@ this.ScenarioInitialize(scenarioInfo);
             table11.AddRow(new string[] {
                         "testval2",
                         "asdf"});
-#line 47
+#line 46
  testRunner.Then("the configuration transform result should be", ((string)(null)), table11, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("One environment in root new variable exists in environment", SourceLine=51)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("One environment in root new variable exists in environment")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void OneEnvironmentInRootNewVariableExistsInEnvironment()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("One environment in root new variable exists in environment", null, ((string[])(null)));
-#line 52
+#line 51
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -226,7 +254,7 @@ this.ScenarioInitialize(scenarioInfo);
             table12.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 53
+#line 52
  testRunner.Given("there are the following properties configured", ((string)(null)), table12, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
@@ -238,9 +266,9 @@ this.ScenarioInitialize(scenarioInfo);
             table13.AddRow(new string[] {
                         "testval2",
                         "asdf"});
-#line 56
+#line 55
  testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table13, "And ");
-#line 60
+#line 59
  testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
@@ -252,17 +280,19 @@ this.ScenarioInitialize(scenarioInfo);
             table14.AddRow(new string[] {
                         "testval2",
                         "asdf"});
-#line 61
+#line 60
  testRunner.Then("the configuration transform result should be", ((string)(null)), table14, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Two environments in root", SourceLine=65)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Two environments in root")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void TwoEnvironmentsInRoot()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two environments in root", null, ((string[])(null)));
-#line 66
+#line 65
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -275,7 +305,7 @@ this.ScenarioInitialize(scenarioInfo);
             table15.AddRow(new string[] {
                         "testval2",
                         "asdf"});
-#line 67
+#line 66
  testRunner.Given("there are the following properties configured", ((string)(null)), table15, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
@@ -284,7 +314,7 @@ this.ScenarioInitialize(scenarioInfo);
             table16.AddRow(new string[] {
                         "testval1",
                         "abc"});
-#line 71
+#line 70
  testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table16, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
@@ -293,9 +323,9 @@ this.ScenarioInitialize(scenarioInfo);
             table17.AddRow(new string[] {
                         "testval1",
                         "fds"});
-#line 74
+#line 73
  testRunner.And("there is an environment configuration Name: \'Production\' with the properties", ((string)(null)), table17, "And ");
-#line 77
+#line 76
  testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
@@ -307,17 +337,19 @@ this.ScenarioInitialize(scenarioInfo);
             table18.AddRow(new string[] {
                         "testval2",
                         "asdf"});
-#line 78
+#line 77
  testRunner.Then("the configuration transform result should be", ((string)(null)), table18, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Fetched environment doesn\'t exist", SourceLine=82)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Fetched environment doesn\'t exist")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void FetchedEnvironmentDoesntExist()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fetched environment doesn\'t exist", null, ((string[])(null)));
-#line 83
+#line 82
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -327,7 +359,7 @@ this.ScenarioInitialize(scenarioInfo);
             table19.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 84
+#line 83
  testRunner.Given("there are the following properties configured", ((string)(null)), table19, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
@@ -339,9 +371,9 @@ this.ScenarioInitialize(scenarioInfo);
             table20.AddRow(new string[] {
                         "testval2",
                         "fds"});
-#line 87
+#line 86
  testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table20, "And ");
-#line 91
+#line 90
  testRunner.When("I get configuration properties with environment Name: \'Production\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
@@ -350,17 +382,19 @@ this.ScenarioInitialize(scenarioInfo);
             table21.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 92
+#line 91
  testRunner.Then("the configuration transform result should be", ((string)(null)), table21, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("add duplicate environment throws exception", SourceLine=95)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("add duplicate environment throws exception")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void AddDuplicateEnvironmentThrowsException()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("add duplicate environment throws exception", null, ((string[])(null)));
-#line 96
+#line 95
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -370,7 +404,7 @@ this.ScenarioInitialize(scenarioInfo);
             table22.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 97
+#line 96
  testRunner.Given("there are the following properties configured", ((string)(null)), table22, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
@@ -379,7 +413,7 @@ this.ScenarioInitialize(scenarioInfo);
             table23.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 100
+#line 99
  testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table23, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
@@ -388,20 +422,22 @@ this.ScenarioInitialize(scenarioInfo);
             table24.AddRow(new string[] {
                         "testval2",
                         "fds"});
-#line 103
+#line 102
  testRunner.When("I add an environment Name: \'Staging\' with the properties", ((string)(null)), table24, "When ");
-#line 106
+#line 105
  testRunner.Then("there should be an exception thrown \'EnvironmentConfigurationAlreadyExistsExcepti" +
                     "on\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("one application in root", SourceLine=109)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("one application in root")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void OneApplicationInRoot()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("one application in root", null, ((string[])(null)));
-#line 110
+#line 109
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -411,7 +447,7 @@ this.ScenarioInitialize(scenarioInfo);
             table25.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 111
+#line 110
  testRunner.Given("there are the following properties configured", ((string)(null)), table25, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
@@ -423,9 +459,9 @@ this.ScenarioInitialize(scenarioInfo);
             table26.AddRow(new string[] {
                         "testval2",
                         "fds"});
-#line 114
+#line 113
  testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table26, "And ");
-#line 118
+#line 117
  testRunner.When("I get configuration properties with application Name: \'Web\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
@@ -437,17 +473,19 @@ this.ScenarioInitialize(scenarioInfo);
             table27.AddRow(new string[] {
                         "testval2",
                         "fds"});
-#line 119
+#line 118
  testRunner.Then("the configuration transform result should be", ((string)(null)), table27, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("one application in root but fetch wrong name", SourceLine=123)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("one application in root but fetch wrong name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void OneApplicationInRootButFetchWrongName()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("one application in root but fetch wrong name", null, ((string[])(null)));
-#line 124
+#line 123
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -457,7 +495,7 @@ this.ScenarioInitialize(scenarioInfo);
             table28.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 125
+#line 124
  testRunner.Given("there are the following properties configured", ((string)(null)), table28, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
@@ -469,9 +507,9 @@ this.ScenarioInitialize(scenarioInfo);
             table29.AddRow(new string[] {
                         "testval2",
                         "fds"});
-#line 128
+#line 127
  testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table29, "And ");
-#line 132
+#line 131
  testRunner.When("I get configuration properties with application Name: \'Webs\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
@@ -480,17 +518,19 @@ this.ScenarioInitialize(scenarioInfo);
             table30.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 133
+#line 132
  testRunner.Then("the configuration transform result should be", ((string)(null)), table30, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("one application and environment in root", SourceLine=136)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("one application and environment in root")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ConfigurationService")]
         public virtual void OneApplicationAndEnvironmentInRoot()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("one application and environment in root", null, ((string[])(null)));
-#line 137
+#line 136
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -500,7 +540,7 @@ this.ScenarioInitialize(scenarioInfo);
             table31.AddRow(new string[] {
                         "testval1",
                         "123"});
-#line 138
+#line 137
  testRunner.Given("there are the following properties configured", ((string)(null)), table31, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
@@ -509,7 +549,7 @@ this.ScenarioInitialize(scenarioInfo);
             table32.AddRow(new string[] {
                         "testval1",
                         "adsf"});
-#line 141
+#line 140
  testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table32, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
@@ -521,9 +561,9 @@ this.ScenarioInitialize(scenarioInfo);
             table33.AddRow(new string[] {
                         "testval2",
                         "fds"});
-#line 144
+#line 143
  testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table33, "And ");
-#line 148
+#line 147
  testRunner.When("I get configuration properties with application Name: \'Web\' and environment Name:" +
                     " \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -536,16 +576,10 @@ this.ScenarioInitialize(scenarioInfo);
             table34.AddRow(new string[] {
                         "testval2",
                         "fds"});
-#line 149
+#line 148
  testRunner.Then("the configuration transform result should be", ((string)(null)), table34, "Then ");
 #line hidden
             this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.TestRunCleanup()]
-        public virtual void TestRunCleanup()
-        {
-            TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         }
     }
 }

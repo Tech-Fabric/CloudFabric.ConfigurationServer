@@ -6,6 +6,8 @@ namespace CloudFabric.ConfigurationServer.GrainInterfaces
 {
     public interface IClientConfiguration : IGrainWithGuidKey, IConfigurationStore
     {
+        Task Create(string name);
+
         Task<IEnvironmentConfiguration> AddEnvironment(string environmentName);
         Task<IEnvironmentConfiguration> GetEnvironment(string environmentName);
         Task RemoveEnvironment(string environmentName);

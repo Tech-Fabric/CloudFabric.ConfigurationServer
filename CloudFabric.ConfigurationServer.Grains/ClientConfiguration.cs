@@ -10,6 +10,13 @@ namespace CloudFabric.ConfigurationServer.Grains
 {
     public class ClientConfiguration : Grain<ClientConfiguration.ClientConfigurationState>, IClientConfiguration
     {
+        public async Task Create(string name)
+        {
+            this.State.Name = name;
+
+            await this.WriteStateAsync();
+        }
+
         public Task<IEnvironmentConfiguration> GetEnvironment(string environmentName)
         {
             if (!this.State.Environments.ContainsKey(environmentName))
@@ -132,6 +139,7 @@ namespace CloudFabric.ConfigurationServer.Grains
 
         public class ClientConfigurationState
         {
+            public string Name { get; set; }
             public Dictionary<string, Guid> Applications { get; set; } = new Dictionary<string, Guid>();
             public Dictionary<string, Guid> Environments { get; set; } = new Dictionary<string, Guid>();
             public Dictionary<string, string> Properties { get; set; } = new Dictionary<string, string>();

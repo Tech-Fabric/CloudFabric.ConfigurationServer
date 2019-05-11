@@ -18,9 +18,12 @@ namespace CloudFabric.ConfigurationServer.Grains
             var clientId = Guid.NewGuid();
             this.State.Clients[clientName] = clientId;
 
+            var client = this.GrainFactory.GetGrain<IClientConfiguration>(clientId);
+            await client.Create(clientName);
+
             await this.WriteStateAsync();
 
-            return this.GrainFactory.GetGrain<IClientConfiguration>(clientId);
+            return client;
         }
 
         public Task<string[]> GetAllClientNames() => Task.FromResult(this.State.Clients.Keys.ToArray());
