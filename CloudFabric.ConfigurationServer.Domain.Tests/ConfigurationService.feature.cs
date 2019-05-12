@@ -98,31 +98,31 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
-            table4.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "testval1",
                         "value"});
-            table4.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "WebApi",
                         "value2"});
 #line 7
- testRunner.Given("there are the following properties configured", ((string)(null)), table4, "Given ");
+ testRunner.Given("there are the following properties configured", ((string)(null)), table6, "Given ");
 #line 11
  testRunner.When("I get configuration properties", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "testval1",
                         "value"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "WebApi",
                         "value2"});
 #line 12
- testRunner.Then("the configuration transform result should be", ((string)(null)), table5, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -137,14 +137,14 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
-            table6.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "testval1",
                         "testval2"});
 #line 18
- testRunner.Given("there are the following properties configured", ((string)(null)), table6, "Given ");
+ testRunner.Given("there are the following properties configured", ((string)(null)), table8, "Given ");
 #line 21
  testRunner.When("I add a configuration property Name: \'testval1\' Value: \'testing\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
@@ -164,28 +164,28 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
-            table7.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "testval1",
                         "431"});
 #line 25
- testRunner.Given("there are the following properties configured", ((string)(null)), table7, "Given ");
+ testRunner.Given("there are the following properties configured", ((string)(null)), table9, "Given ");
 #line 28
  testRunner.When("I add the configuration property Name: \'testval2\' Value: \'testing\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
-            table8.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "testval1",
                         "431"});
-            table8.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "testval2",
                         "testing"});
 #line 29
- testRunner.Then("the configuration transform result should be", ((string)(null)), table8, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table10, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -200,40 +200,40 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table9.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-            table9.AddRow(new string[] {
-                        "testval2",
-                        "asdf"});
-#line 38
- testRunner.Given("there are the following properties configured", ((string)(null)), table9, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table10.AddRow(new string[] {
-                        "testval1",
-                        "abc"});
-#line 42
- testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table10, "And ");
-#line 45
- testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table11.AddRow(new string[] {
                         "testval1",
-                        "abc"});
+                        "123"});
             table11.AddRow(new string[] {
                         "testval2",
                         "asdf"});
+#line 38
+ testRunner.Given("there are the following properties configured", ((string)(null)), table11, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table12.AddRow(new string[] {
+                        "testval1",
+                        "abc"});
+#line 42
+ testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table12, "And ");
+#line 45
+ testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table13.AddRow(new string[] {
+                        "testval1",
+                        "abc"});
+            table13.AddRow(new string[] {
+                        "testval2",
+                        "asdf"});
 #line 46
- testRunner.Then("the configuration transform result should be", ((string)(null)), table11, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table13, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -248,40 +248,40 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table12.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-#line 52
- testRunner.Given("there are the following properties configured", ((string)(null)), table12, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table13.AddRow(new string[] {
-                        "testval1",
-                        "abc"});
-            table13.AddRow(new string[] {
-                        "testval2",
-                        "asdf"});
-#line 55
- testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table13, "And ");
-#line 59
- testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
             TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table14.AddRow(new string[] {
                         "testval1",
+                        "123"});
+#line 52
+ testRunner.Given("there are the following properties configured", ((string)(null)), table14, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table15.AddRow(new string[] {
+                        "testval1",
                         "abc"});
-            table14.AddRow(new string[] {
+            table15.AddRow(new string[] {
+                        "testval2",
+                        "asdf"});
+#line 55
+ testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table15, "And ");
+#line 59
+ testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table16.AddRow(new string[] {
+                        "testval1",
+                        "abc"});
+            table16.AddRow(new string[] {
                         "testval2",
                         "asdf"});
 #line 60
- testRunner.Then("the configuration transform result should be", ((string)(null)), table14, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table16, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -296,37 +296,17 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table15.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-            table15.AddRow(new string[] {
-                        "testval2",
-                        "asdf"});
-#line 66
- testRunner.Given("there are the following properties configured", ((string)(null)), table15, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table16.AddRow(new string[] {
-                        "testval1",
-                        "abc"});
-#line 70
- testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table16, "And ");
-#line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table17.AddRow(new string[] {
                         "testval1",
-                        "fds"});
-#line 73
- testRunner.And("there is an environment configuration Name: \'Production\' with the properties", ((string)(null)), table17, "And ");
-#line 76
- testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                        "123"});
+            table17.AddRow(new string[] {
+                        "testval2",
+                        "asdf"});
+#line 66
+ testRunner.Given("there are the following properties configured", ((string)(null)), table17, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -334,11 +314,31 @@ this.ScenarioInitialize(scenarioInfo);
             table18.AddRow(new string[] {
                         "testval1",
                         "abc"});
-            table18.AddRow(new string[] {
+#line 70
+ testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table18, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table19.AddRow(new string[] {
+                        "testval1",
+                        "fds"});
+#line 73
+ testRunner.And("there is an environment configuration Name: \'Production\' with the properties", ((string)(null)), table19, "And ");
+#line 76
+ testRunner.When("I get configuration properties with environment Name: \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table20.AddRow(new string[] {
+                        "testval1",
+                        "abc"});
+            table20.AddRow(new string[] {
                         "testval2",
                         "asdf"});
 #line 77
- testRunner.Then("the configuration transform result should be", ((string)(null)), table18, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table20, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -353,37 +353,37 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table19.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-#line 83
- testRunner.Given("there are the following properties configured", ((string)(null)), table19, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table20.AddRow(new string[] {
-                        "testval1",
-                        "321"});
-            table20.AddRow(new string[] {
-                        "testval2",
-                        "fds"});
-#line 86
- testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table20, "And ");
-#line 90
- testRunner.When("I get configuration properties with environment Name: \'Production\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table21.AddRow(new string[] {
                         "testval1",
                         "123"});
+#line 83
+ testRunner.Given("there are the following properties configured", ((string)(null)), table21, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table22.AddRow(new string[] {
+                        "testval1",
+                        "321"});
+            table22.AddRow(new string[] {
+                        "testval2",
+                        "fds"});
+#line 86
+ testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table22, "And ");
+#line 90
+ testRunner.When("I get configuration properties with environment Name: \'Production\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table23.AddRow(new string[] {
+                        "testval1",
+                        "123"});
 #line 91
- testRunner.Then("the configuration transform result should be", ((string)(null)), table21, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table23, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -398,32 +398,32 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table22.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-#line 96
- testRunner.Given("there are the following properties configured", ((string)(null)), table22, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table23.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-#line 99
- testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table23, "And ");
-#line hidden
             TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table24.AddRow(new string[] {
+                        "testval1",
+                        "123"});
+#line 96
+ testRunner.Given("there are the following properties configured", ((string)(null)), table24, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table25.AddRow(new string[] {
+                        "testval1",
+                        "123"});
+#line 99
+ testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table25, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table26.AddRow(new string[] {
                         "testval2",
                         "fds"});
 #line 102
- testRunner.When("I add an environment Name: \'Staging\' with the properties", ((string)(null)), table24, "When ");
+ testRunner.When("I add an environment Name: \'Staging\' with the properties", ((string)(null)), table26, "When ");
 #line 105
  testRunner.Then("there should be an exception thrown \'EnvironmentConfigurationAlreadyExistsExcepti" +
                     "on\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -441,40 +441,40 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table25.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-#line 110
- testRunner.Given("there are the following properties configured", ((string)(null)), table25, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table26.AddRow(new string[] {
-                        "testval1",
-                        "321"});
-            table26.AddRow(new string[] {
-                        "testval2",
-                        "fds"});
-#line 113
- testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table26, "And ");
-#line 117
- testRunner.When("I get configuration properties with application Name: \'Web\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
             TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table27.AddRow(new string[] {
                         "testval1",
+                        "123"});
+#line 110
+ testRunner.Given("there are the following properties configured", ((string)(null)), table27, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table28.AddRow(new string[] {
+                        "testval1",
                         "321"});
-            table27.AddRow(new string[] {
+            table28.AddRow(new string[] {
+                        "testval2",
+                        "fds"});
+#line 113
+ testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table28, "And ");
+#line 117
+ testRunner.When("I get configuration properties with application Name: \'Web\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table29.AddRow(new string[] {
+                        "testval1",
+                        "321"});
+            table29.AddRow(new string[] {
                         "testval2",
                         "fds"});
 #line 118
- testRunner.Then("the configuration transform result should be", ((string)(null)), table27, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table29, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -489,37 +489,37 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table28.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-#line 124
- testRunner.Given("there are the following properties configured", ((string)(null)), table28, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table29.AddRow(new string[] {
-                        "testval1",
-                        "321"});
-            table29.AddRow(new string[] {
-                        "testval2",
-                        "fds"});
-#line 127
- testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table29, "And ");
-#line 131
- testRunner.When("I get configuration properties with application Name: \'Webs\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
             TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table30.AddRow(new string[] {
                         "testval1",
                         "123"});
+#line 124
+ testRunner.Given("there are the following properties configured", ((string)(null)), table30, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table31.AddRow(new string[] {
+                        "testval1",
+                        "321"});
+            table31.AddRow(new string[] {
+                        "testval2",
+                        "fds"});
+#line 127
+ testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table31, "And ");
+#line 131
+ testRunner.When("I get configuration properties with application Name: \'Webs\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table32.AddRow(new string[] {
+                        "testval1",
+                        "123"});
 #line 132
- testRunner.Then("the configuration transform result should be", ((string)(null)), table30, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table32, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -534,50 +534,50 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table31.AddRow(new string[] {
-                        "testval1",
-                        "123"});
-#line 137
- testRunner.Given("there are the following properties configured", ((string)(null)), table31, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Value"});
-            table32.AddRow(new string[] {
-                        "testval1",
-                        "adsf"});
-#line 140
- testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table32, "And ");
-#line hidden
             TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table33.AddRow(new string[] {
                         "testval1",
-                        "321"});
-            table33.AddRow(new string[] {
-                        "testval2",
-                        "fds"});
-#line 143
- testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table33, "And ");
-#line 147
- testRunner.When("I get configuration properties with application Name: \'Web\' and environment Name:" +
-                    " \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                        "123"});
+#line 137
+ testRunner.Given("there are the following properties configured", ((string)(null)), table33, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Value"});
             table34.AddRow(new string[] {
                         "testval1",
+                        "adsf"});
+#line 140
+ testRunner.And("there is an environment configuration Name: \'Staging\' with the properties", ((string)(null)), table34, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table35.AddRow(new string[] {
+                        "testval1",
                         "321"});
-            table34.AddRow(new string[] {
+            table35.AddRow(new string[] {
+                        "testval2",
+                        "fds"});
+#line 143
+ testRunner.And("there is an application configuration Name: \'Web\' with the properties", ((string)(null)), table35, "And ");
+#line 147
+ testRunner.When("I get configuration properties with application Name: \'Web\' and environment Name:" +
+                    " \'Staging\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Value"});
+            table36.AddRow(new string[] {
+                        "testval1",
+                        "321"});
+            table36.AddRow(new string[] {
                         "testval2",
                         "fds"});
 #line 148
- testRunner.Then("the configuration transform result should be", ((string)(null)), table34, "Then ");
+ testRunner.Then("the configuration transform result should be", ((string)(null)), table36, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
