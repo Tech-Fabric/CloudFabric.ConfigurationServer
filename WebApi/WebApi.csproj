@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CloudFabric.ConfigurationServer.GrainInterfaces\CloudFabric.ConfigurationServer.GrainInterfaces.csproj" />
+    <ProjectReference Include="..\GrainInterfaces\GrainInterfaces.csproj" />
   </ItemGroup>
   
   <!--<Target Name="NSwag" AfterTargets="Build">

@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CloudFabric.ConfigurationServer.GrainInterfaces\CloudFabric.ConfigurationServer.GrainInterfaces.csproj" />
-    <ProjectReference Include="..\CloudFabric.ConfigurationServer.Grains\CloudFabric.ConfigurationServer.Grains.csproj" />
+    <ProjectReference Include="..\GrainInterfaces\GrainInterfaces.csproj" />
+    <ProjectReference Include="..\Grains\Grains.csproj" />
   </ItemGroup>
 
 </Project>

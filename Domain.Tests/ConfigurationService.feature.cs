@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace CloudFabric.ConfigurationServer.Domain.Tests
+namespace Domain.Tests
 {
     using TechTalk.SpecFlow;
     
@@ -62,7 +62,7 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "ConfigurationService")))
             {
-                global::CloudFabric.ConfigurationServer.Domain.Tests.ConfigurationServiceFeature.FeatureSetup(null);
+                global::Domain.Tests.ConfigurationServiceFeature.FeatureSetup(null);
             }
         }
         
