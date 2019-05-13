@@ -93,12 +93,12 @@ namespace Domain.Tests
         public virtual void AddingNewClientConfiguration()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding new Client configuration", null, ((string[])(null)));
-#line 3
+#line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
+#line 6
  testRunner.When("I add a new Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 5
+#line 7
  testRunner.Then("the Client configuration for K&L Wines is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -112,14 +112,14 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding duplicated Client configuration", null, new string[] {
                         "ExpectException"});
-#line 9
+#line 11
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 10
- testRunner.Given("a Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
- testRunner.When("I add a new Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
+ testRunner.Given("a Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
+ testRunner.When("I add a new Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
  testRunner.Then("adding fails as Client with name K&L Wines already exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -131,18 +131,18 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void AddingNewClientConfigurationWithUniqueName()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding new Client configuration with unique name", null, ((string[])(null)));
-#line 15
+#line 17
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 16
- testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
- testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.And("a Client with name ServiceWare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 19
- testRunner.When("I add a new Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
+ testRunner.And("a Client with name ServiceWare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.When("I add a new Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
  testRunner.Then("the Client configuration for K&L Wines is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -154,18 +154,18 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void RemovingExistingClientConfiguration()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Removing existing Client configuration", null, ((string[])(null)));
-#line 23
+#line 25
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 24
- testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
- testRunner.And("a Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
- testRunner.When("I remove Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("a Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
+ testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+ testRunner.When("I remove Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
  testRunner.Then("the Client K&L Wines is removed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -177,16 +177,16 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void RemovingNon_ExistingClientConfiguration()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Removing non-existing Client configuration", null, ((string[])(null)));
-#line 31
+#line 33
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 32
- testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
- testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.When("I remove Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 35
+ testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+ testRunner.When("I remove Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 37
  testRunner.Then("removal succeeds while Client K&L Wines is not actully removed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -198,16 +198,16 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void GettingTheListOfAllClientNames()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting the list of all Client names", null, ((string[])(null)));
-#line 38
+#line 40
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 39
- testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 40
- testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
- testRunner.And("a Client with name ServiceWare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 42
+ testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.And("a Client with name ServiceWare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
  testRunner.When("I get the list of Client names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -218,7 +218,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Cloud Fabric"});
             table4.AddRow(new string[] {
                         "ServiceWare"});
-#line 43
+#line 45
  testRunner.Then("the following names should be returned", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -230,18 +230,18 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ListOfAllClientNamesDoesntContainRemovedClients()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("List of all Client names doesn\'t contain removed Clients", null, ((string[])(null)));
-#line 50
+#line 52
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 51
- testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 52
- testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
- testRunner.And("a Client with name ServiceWare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("a Client with name Tech Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 54
- testRunner.And("a Client Cloud Fabric was removed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("a Client with name Cloud Fabric", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
+ testRunner.And("a Client with name ServiceWare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+ testRunner.And("a Client Cloud Fabric was removed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
  testRunner.When("I get the list of Client names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -250,8 +250,52 @@ this.ScenarioInitialize(scenarioInfo);
                         "Tech Fabric"});
             table5.AddRow(new string[] {
                         "ServiceWare"});
-#line 56
+#line 58
  testRunner.Then("the following names should be returned", ((string)(null)), table5, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Effective configuration is that of the Client")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Configuration")]
+        public virtual void EffectiveConfigurationIsThatOfTheClient()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Effective configuration is that of the Client", "\tThere are no system wide properties so the Client configuration is retured witho" +
+                    "ut any modifications", ((string[])(null)));
+#line 66
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 68
+ testRunner.Given("a Client with name K&L Wines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Property",
+                        "Value"});
+            table6.AddRow(new string[] {
+                        "Website URL",
+                        "http://klwines.com"});
+            table6.AddRow(new string[] {
+                        "Database",
+                        "CosmosDB"});
+#line 69
+ testRunner.And("effective configuration for Client K&L Wines, Application Website, Environment Pr" +
+                    "oduction and Deployment Blue", ((string)(null)), table6, "And ");
+#line 73
+ testRunner.When("I get the effective configuration for Client K&L Wines, Application Website, Envi" +
+                    "ronment Production and Deployment Blue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Property",
+                        "Value"});
+            table7.AddRow(new string[] {
+                        "Website URL",
+                        "http://klwines.com"});
+            table7.AddRow(new string[] {
+                        "Database",
+                        "CosmosDB"});
+#line 74
+ testRunner.Then("the configuration should be", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

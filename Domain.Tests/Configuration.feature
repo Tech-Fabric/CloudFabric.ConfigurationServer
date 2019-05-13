@@ -1,5 +1,7 @@
 ﻿Feature: Configuration
 
+# Managing Clients
+
 Scenario: Adding new Client configuration
 	When I add a new Client with name K&L Wines
 	Then the Client configuration for K&L Wines is created
@@ -57,3 +59,19 @@ Scenario: List of all Client names doesn't contain removed Clients
 	| Name         |
 	| Tech Fabric  |
 	| ServiceWare  |
+
+
+# Calculating configuration
+
+Scenario: Effective configuration is that of the Client
+	There are no system wide properties so the Client configuration is retured without any modifications
+	Given a Client with name K&L Wines
+	And effective configuration for Client K&L Wines, Application Website, Environment Production and Deployment Blue
+	| Property    | Value              |
+	| Website URL | http://klwines.com |
+	| Database    | CosmosDB           |
+	When I get the effective configuration for Client K&L Wines, Application Website, Environment Production and Deployment Blue
+	Then the configuration should be
+	| Property    | Value              |
+	| Website URL | http://klwines.com |
+	| Database    | CosmosDB           |

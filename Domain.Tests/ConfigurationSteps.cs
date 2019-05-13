@@ -9,6 +9,7 @@ using Moq;
 using System.Collections.Generic;
 using TechTalk.SpecFlow.Assist;
 using System.Linq;
+using CloudFabric.ConfigurationServer.Domain.ValueObjects;
 
 namespace CloudFabric.ConfigurationServer.Domain.Tests
 {
@@ -17,6 +18,7 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
     {
         private const string AllClientNames = nameof(AllClientNames);
         private const string RemovedClientId = nameof(RemovedClientId);
+        private const string EffectiveConfiguration = nameof(EffectiveConfiguration);
 
         public ConfigurationSteps(SiloContext context, ScenarioContext scenarioContext)
             : base(context, scenarioContext)
@@ -37,6 +39,19 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
             var configuration = await this.Context.GetGrain<Configuration>(0);
 
             await configuration.RemoveClient(name);
+        }
+
+        [Given(@"effective configuration for Client (.*), Application (.*), Environment (.*) and Deployment (.*)")]
+        public async Task GivenEffectiveConfigurationForClientApplicationEnvironmentAndDeployment(string clientName, string applicationName, string environmentName, string deploymentName, IEnumerable<ConfigurationProperty> table)
+        {
+            var configuration = await this.Context.GetGrain<Configuration>(0);
+            var state = this.Context.Silo.State(configuration);
+            var clientId = state.Clients[clientName];
+
+            var client = this.Context.Silo.GrainFactory.GetGrain<IClientConfiguration>(clientId);
+            Mock.Get(client)
+                .Setup(x => x.GetEffectiveConfiguration(applicationName, environmentName, deploymentName))
+                .Returns(Task.FromResult(table.ToArray()));
         }
 
         [When(@"I add a new Client with name (.*)")]
@@ -64,6 +79,14 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
             this.ScenarioContext.Set(state.Clients.ContainsKey(name) ? state.Clients[name] : (Guid?)null, RemovedClientId);
 
             await configuration.RemoveClient(name);
+        }
+
+        [When(@"I get the effective configuration for Client (.*), Application (.*), Environment (.*) and Deployment (.*)")]
+        public async Task WhenIGetTheEffectiveConfigurationForClientApplicationEnvironmentAndDeployment(string clientName, string applicationName, string environmentName, string deploymentName)
+        {
+            var configuration = await this.Context.GetGrain<Configuration>(0);
+
+            this.ScenarioContext.Set(await configuration.GetEffectiveConfiguration(clientName, applicationName, environmentName, deploymentName), EffectiveConfiguration);
         }
 
         [Then(@"the Client configuration for (.*) is created")]
@@ -128,12 +151,29 @@ namespace CloudFabric.ConfigurationServer.Domain.Tests
             clientNames.ShouldBe(table.Select(x => x.Name), ignoreOrder: true);
         }
 
+        [Then(@"the configuration should be")]
+        public void ThenTheConfigurationShouldBe(IEnumerable<ConfigurationProperty> table)
+        {
+            var configuration = this.ScenarioContext.Get<ConfigurationProperty[]>(EffectiveConfiguration);
+
+            configuration.ShouldBe(table, ignoreOrder: true);
+        }
+
         public class ClientName
         {
             public string Name { get; set; }
         }
 
+        private class ConfigurationPropertyInput
+        {
+            public string Property { get; set; }
+            public string Value { get; set; }
+        }
+
         [StepArgumentTransformation]
         public IEnumerable<ClientName> GetClientNames(Table table) => table.CreateSet<ClientName>();
+
+        [StepArgumentTransformation]
+        public IEnumerable<ConfigurationProperty> GetConfigurationProperties(Table table) => table.CreateSet<ConfigurationPropertyInput>().Select(x => new ConfigurationProperty(x.Property, x.Value));
     }
 }
